@@ -7,12 +7,12 @@ function Triangle(){
    $side1 = $_POST['side1'];
    $side2 = $_POST['side2'];
    $side3 = $_POST['side3'];
-
+   $color = $_POST['color'];
    if ($_SERVER['REQUEST_METHOD'] == "POST"){
       $triangle = new Triangle();
       $triangle->setSide($side1,$side2,$side3);
-
-      echo "S = ".$triangle->getArea()."<br>"."P = ".$triangle->getPerimeter();
+      $triangle->color = $color;
+      echo "S = ".$triangle->getArea()."<br>"."P = ".$triangle->getPerimeter()."<br>Color :".$triangle->color;
       //echo $side3;
    }else{
       echo " Vui long nhap du lieu";
@@ -97,6 +97,14 @@ function Triangle(){
             <div class="form-group">
                <label for="">Canh 3:</label>
                <input type="number" class="form-control" name="side3" id="" placeholder="Input side 3...">
+            </div>
+            <div class="form-group">
+               <select name="color" id="inputID" class="form-control">
+                  <option value="yellow"> Yellow </option>
+                  <option value="green"> Green </option>
+                  <option value="blue"> Blue </option>
+                  <option value="pink"> Pink </option>
+               </select>
             </div>
             <button type="submit" class="btn btn-success">Submit</button>
          </form>
